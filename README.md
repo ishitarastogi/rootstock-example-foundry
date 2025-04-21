@@ -88,38 +88,32 @@ cd rootstock-foundry-starterkit
 
 <h3>Step 4: Configure Rootstock RPC & Fund Your Wallet</h3>
 
-<h4> Add Rootstock RPC URLs</h4>
-
-<h5>Option 1: Use Public RPC</h5>
-
+<p><strong>Option 1: Use Public RPC</strong></p>
 <ul>
   <li><strong>Testnet:</strong> <code>https://public-node.testnet.rsk.co</code></li>
   <li><strong>Mainnet:</strong> <code>https://public-node.rsk.co</code></li>
 </ul>
-
 <p>
-   Visit the 
-  <a href="https://dev.rootstock.io/dev-tools/wallets/metamask/" target="_blank">MetaMask Setup Guide</a> 
-  to add Rootstock networks manually.
+  To manually add Rootstock networks in MetaMask, refer to the official 
+  <a href="https://dev.rootstock.io/dev-tools/wallets/metamask/" target="_blank">MetaMask Setup Guide</a>.
 </p>
 
-<h5>Option 2: Use a Personal RPC </h5>
+<p><strong>Option 2: Use a Personal RPC</strong></p>
+<p>
+  You can also create a custom RPC endpoint via the 
+  <a href="https://developers.rsk.co/rpc/" target="_blank">Rootstock RPC Dashboard</a>. After creating an account, generate and copy your API key from the dashboard.
+</p>
 
+<p><strong>How to Get Testnet RBTC</strong></p>
 <ol>
-  <li>Create an account on the
-    <a href="https://developers.rsk.co/rpc/" target="_blank">Rootstock RPC API. Once logged in, navigate to your dashboard and copy the API Key.</a>.
-
-</ol>
-
-
-<h4> Get Testnet RBTC</h4>
-
-<ol>
-  <li>Go to the 
+  <li>
+    Visit the 
     <a href="https://faucet.testnet.rsk.co/" target="_blank">Rootstock Testnet Faucet</a> 
     and paste your wallet address.
   </li>
-  <li>You’ll receive a small amount of <strong>tRBTC</strong> to use for contract deployment.</li>
+  <li>
+    You’ll receive a small amount of <strong>tRBTC</strong> to use for contract deployments.
+  </li>
 </ol>
 
 
@@ -139,7 +133,7 @@ cd rootstock-foundry-starterkit
 <p>🚨 Ensure <code>.env</code> is listed in your <code>.gitignore</code>.</p>
 
 <hr>
-<h2>Before We Build: Compile, Test & Deploy the RootToken</h2>
+<h2>Compile, Test & Deploy ERC20Token</h2>
 
 <p>Now that your environment is set up and the dependencies are installed, let’s walk through building, testing, and deploying your ERC-20 faucet contract.</p>
 
@@ -173,16 +167,11 @@ cd rootstock-foundry-starterkit
 
 <h3> Step 8: Deploy the RootToken to Rootstock Testnet</h3>
 
-<p>Your ERC-20 faucet contract (<code>RootToken.sol</code>) will be deployed using the script at <code>script/Deploy.s.sol</code>.</p>
+<p>Your ERC-20 faucet contract (<code>ERC20Token.sol</code>) will be deployed using the script at <code>script/Deploy.s.sol</code>.</p>
 
 <h4>Command</h4>
 
-<pre><code>forge script script/Deploy.s.sol \
-  --rpc-url https://public-node.testnet.rsk.co \
-  --broadcast \
-  --legacy \
-  --evm-version london
-</code></pre>
+<pre><code>forge script script/Deploy.s.sol --rpc-url https://public-node.testnet.rsk.co --broadcast --legacy --evm-version london</code></pre>
 
 <ul>
   <li><strong>--broadcast</strong>: Sends the deployment to the network</li>
@@ -193,7 +182,6 @@ cd rootstock-foundry-starterkit
 <div>
   <strong>ℹ️ Info:</strong> Rootstock doesn’t support EIP-1559. Use <code>--legacy</code> for compatibility and <code>--evm-version london</code> to match its EVM version. 
   
-  In case of errors like <code>Transaction dropped from the mempool</code>, check the transaction hash in the <a href="https://explorer.testnet.rootstock.io/" target="_blank">Rootstock Explorer</a>. It might have succeeded onchain even if logs show otherwise.
   <br>You can also inspect <code>broadcast/Deploy.s.sol/run-latest.json</code> for the deployed contract address and receipt.
 </div>
 
@@ -201,11 +189,8 @@ cd rootstock-foundry-starterkit
 <h4>🔍 Simulate Deployment (Optional)</h4>
 
 <br>To dry-run the script without sending it, if you remove <code>--broadcast</code>, Foundry will simulate the deployment without actually submitting it.
-<pre><code>forge script script/Deploy.s.sol \
-  --rpc-url https://public-node.testnet.rsk.co \
-  --legacy \
-  --evm-version london
-</code></pre>
+<pre><code>forge script script/Deploy.s.sol --rpc-url https://public-node.testnet.rsk.co --legacy --evm-version london</code></pre>
+
 
 <hr>
 
@@ -387,63 +372,89 @@ Use your deploy script with the following command:
 
 <h2>🔍 Step 9: Verify Your Contract on Rootstock Explorer</h2>
 
-<p>After deploying your <code>RootToken</code>, you should verify it on the <a href="https://explorer.testnet.rootstock.io/" target="_blank">Rootstock Testnet Explorer</a> for transparency and easy interaction.</p>
+<p>After deploying your <code>RootToken</code>, you should verify it on the 
+<a href="https://explorer.testnet.rootstock.io/" target="_blank">Rootstock Testnet Explorer</a> 
+for transparency and easy interaction.</p>
 
----
+<hr>
 
-<h3>1. Copy Your Contract Address</h3>
+<p><strong>1. Copy Your Contract Address</strong></p>
 
-<h3>2. Open the Explorer</h3>
-
+<p><strong>2. Open the Explorer</strong></p>
 <ol>
   <li>Go to <a href="https://explorer.testnet.rootstock.io/" target="_blank">explorer.testnet.rootstock.io</a></li>
   <li>Paste your contract address and open the contract page</li>
-  <li>Click the <strong>```Code```</strong> tab → then <strong>```Verify Contract```</strong></li>
+  <li>Click the <strong>Code</strong> tab → then <strong>Verify Contract</strong></li>
 </ol>
 
----
+<hr>
 
-<h3>3. Fill the Verification Form</h3>
+<p><strong>3. Fill the Verification Form</strong></p>
 
-Here’s what each field means and how to fill it:
+<p>Here’s what each field means and how to fill it:</p>
 
-| Field                         | Value/Instructions                              |
-|------------------------------|--------------------------------------------------|
-| **Contract Name**            | `RootToken` (no `.sol` extension)               |
-| **Compiler Version**         | Match the version in `pragma solidity` (e.g., `0.8.20`) |
-| **Optimization**             | Yes                                             |
-| **EVM Version**              | London                                          |
-| **Constructor Arguments**    | `Root Token,ROOT` *(no quotes)*                 |
-| **ABI-encoded Args?**        | No                                              |
-| **Contract Libraries**       | Leave blank unless you're linking manually      |
-| **Source File**              | <strong>Paste your flattened contract here</strong> (see below 👇) |
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Value/Instructions</th>
+  </tr>
+  <tr>
+    <td><strong>Contract Name</strong></td>
+    <td><code>RootToken</code> (no <code>.sol</code> extension)</td>
+  </tr>
+  <tr>
+    <td><strong>Compiler Version</strong></td>
+    <td>Match the version in <code>pragma solidity</code> (e.g., <code>0.8.20</code>)</td>
+  </tr>
+  <tr>
+    <td><strong>Optimization</strong></td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><strong>EVM Version</strong></td>
+    <td>London</td>
+  </tr>
+  <tr>
+    <td><strong>Constructor Arguments</strong></td>
+    <td><code>Root Token,ROOT</code> <em>(no quotes)</em></td>
+  </tr>
+  <tr>
+    <td><strong>ABI-encoded Args?</strong></td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><strong>Contract Libraries</strong></td>
+    <td>Leave blank unless you're linking manually</td>
+  </tr>
+  <tr>
+    <td><strong>Source File</strong></td>
+    <td><strong>Paste your flattened contract here</strong> (see below 👇)</td>
+  </tr>
+</table>
 
----
+<hr>
 
-<h3>4. Flatten the Contract (for Source File)</h3>
+<p><strong>4. Flatten the Contract (for Source File)</strong></p>
 
 <p>If you imported from OpenZeppelin or any other libraries, you need to flatten your contract. Use one of the following methods:</p>
 
-<h4>✔️ Option A: Using Foundry</h4>
-
+<p><strong>✔️ Option A: Using Foundry</strong></p>
 <pre><code>forge flatten src/RootToken.sol > RootToken.flat.sol</code></pre>
+<p>Then copy-paste the contents of <code>RootToken.flat.sol</code> into the Source File field.</p>
 
-<p>Import <code>RootToken.flat.sol</code>.</p>
-
-<h4>✔️ Option B: Using Remix</h4>
-
+<p><strong>✔️ Option B: Using Remix</strong></p>
 <ol>
   <li>Go to <a href="https://remix.ethereum.org/" target="_blank">Remix IDE</a></li>
   <li>Create a new file and paste the full contract with imports</li>
-  <li>Right Click the file tab → then choose “Flatten”</li>
-  <li>Import the Source File to form</li>
+  <li>Right Click the file tab → choose “Flatten”</li>
+  <li>Paste the output into the Source File field in the verification form</li>
 </ol>
 
----
+<hr>
 
-<h3>5. Submit</h3>
+<p><strong>5. Submit</strong></p>
 
-<p>Click <strong>Verify</strong>. If all fields are correct and your contract was flattened, it should verify successfully in seconds.</p>
+<p>Click <strong>Verify</strong>. If all fields are correctly filled and your contract is properly flattened, the verification should succeed in seconds.</p>
 
 ---
 
@@ -456,15 +467,40 @@ Here’s what each field means and how to fill it:
 https://explorer.testnet.rootstock.io/address/0x9ad8a78833921ebc0bb4eb79c420020d212c8eff?__ctab=Contract%20Interaction
 </a></p>
 
-<p>🎉 You’ve successfully verified and can now interact with your faucet contract live on Rootstock Testnet!</p>
+<p><strong>Step-by-step to interact:</strong></p>
+
+<ol>
+  <li>Go to the <strong>Contract Interaction</strong> tab</li>
+  <li>Click on <strong>Write Contract</strong></li>
+  <li>Connect your MetaMask wallet by clicking "Connect to Web3"</li>
+  <li>Scroll down to the <code>claimTo</code> function</li>
+  <li>Enter any recipient address (it can be your own address)</li>
+  <li>Click <strong>Write</strong> and confirm the transaction in MetaMask</li>
+</ol>
+
+<img width="1239" alt="Screenshot of Write Contract section" src="https://github.com/user-attachments/assets/e0776e4b-931b-4d6f-b572-4dd2ec9a3e75" />
+
+<p><strong>✅ After the transaction confirms:</strong></p>
+
+<ol>
+  <li>Go to the <strong>Read Contract</strong> tab</li>
+  <li>Find the <code>balanceOf</code> function</li>
+  <li>Enter the same address used in <code>claimTo</code></li>
+  <li>You should see the result: <strong>100 * 10^18</strong> = 100 ROOT tokens</li>
+</ol>
+
+<img width="1234" alt="Screenshot of Read Contract balanceOf" src="https://github.com/user-attachments/assets/cf8f0b72-e1c1-4698-b3cc-7c548b0b7c1e" />
+
+<p>🎉 You’ve successfully verified and interacted with your ERC-20 faucet contract live on Rootstock Testnet!</p>
+
 
 <h2> Step 10: Interact with RootToken Using Cast (Terminal)</h2>
 
-<p>After deploying and verifying your contract, you can interact with it directly from your terminal using <code>cast</code> — a CLI tool from Foundry.</p>
+<p>You can interact with your contract directly from the terminal using <code>cast</code> — a CLI tool from Foundry.</p>
 
 <hr>
 
-<h3> Read: Check Token Balance</h3>
+<strong>📖 Read: Check Token Balance</strong>
 
 <p>Use the <code>balanceOf</code> function to check how many tokens a wallet holds:</p>
 
@@ -486,7 +522,7 @@ https://explorer.testnet.rootstock.io/address/0x9ad8a78833921ebc0bb4eb79c420020d
 
 <hr>
 
-<h3>✍ Write: Claim Tokens Using <code>claimTo</code></h3>
+<strong>✍ Write: Claim Tokens Using <code>claimTo</code></strong>
 
 <p>This function writes to the blockchain (requires gas). It allows any user to claim 100 ROOT tokens if their cooldown has expired.</p>
 
@@ -519,7 +555,7 @@ logs:
 
 <hr>
 
-<h3> Tips</h3>
+<strong>💡 Tips</strong>
 <ul>
   <li>You can call any <code>view</code> or <code>pure</code> function (e.g., <code>totalSupply()</code>, <code>cooldown()</code>) using <code>cast call</code>.</li>
   <li>Use <code>cast send</code> for writing to the blockchain (token transfers, claims, etc.).</li>
@@ -533,7 +569,7 @@ logs:
 ## 🌱 Bonus: TapRoot dApp Built on Rootstock
 <strong>Live Demo:</strong> <a href="https://rootstock-foundry-example.vercel.app/" target="_blank">https://rootstock-foundry-example.vercel.app/</a>
 
-I’ve also built a fullstack dApp on the Rootstock blockchain using the Foundry kit, Solidity, and ReactJS.
+Built a fullstack dApp on the Rootstock blockchain using the Foundry kit, Solidity, and ReactJS.
 
 ###  TapRoot: Root Yourself Onchain
 
@@ -557,4 +593,16 @@ I’ve also built a fullstack dApp on the Rootstock blockchain using the Foundry
 It’s a simple, feel-good way to leave your mark **onchain**:  
 Root yourself. Root your friends.  
 Grow the global counter—together.
+
+<h3> ✅ That’s a Wrap: What You’ve Built </h3>
+
+- By the end of this guide, you’ve successfully:
+- Set up a modern EVM development environment using Foundry
+- Created a custom ERC-20 token contract with faucet logic
+- Tested it thoroughly using Forge’s powerful test suite
+- Deployed the contract to the Rootstock Testnet
+- Verified the contract on the Rootstock Explorer
+- Interacted with it both via explorer UI and Cast CLI
+
+All of this on Rootstock, an EVM-compatible chain secured by Bitcoin.
 
