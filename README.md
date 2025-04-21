@@ -150,7 +150,7 @@ cd rootstock-foundry-starterkit
 
 <h3> Step 7: Run the Tests</h3>
 
-<p>Test the functionality of your <code>RootToken</code> contract by executing:</p>
+<p>Test the functionality of your <code>ERC20Token</code> contract by executing:</p>
 
 <pre><code>forge test -vv
 </code></pre>
@@ -165,7 +165,7 @@ cd rootstock-foundry-starterkit
 <hr>
 <p>✅ You are now fully set up to build, test, and deploy dApps on Rootstock!</p>
 
-<h3> Step 8: Deploy the RootToken to Rootstock Testnet</h3>
+<h3> Step 8: Deploy the ERC20Token to Rootstock Testnet</h3>
 
 <p>Your ERC-20 faucet contract (<code>ERC20Token.sol</code>) will be deployed using the script at <code>script/Deploy.s.sol</code>.</p>
 
@@ -197,7 +197,9 @@ cd rootstock-foundry-starterkit
 
 <h2> Let’s Get Started: RootToken Contract, Testing & Deployment</h2>
 
+
 <p>Now that the environment is ready, let’s create, test, and deploy the <code>RootToken</code> — a simple ERC-20 faucet token with cooldown logic built on OpenZeppelin’s implementation.</p>
+<strong>Complete github code:</strong> <a href="https://github.com/ishitarastogi/rootstock-example-foundr" target="_blank">https://rootstock-foundry-example.vercel.app/</a>
 
 <hr>
 
@@ -570,6 +572,7 @@ logs:
 
 ## 🌱 Bonus: TapRoot dApp Built on Rootstock
 <strong>Live Demo:</strong> <a href="https://rootstock-foundry-example.vercel.app/" target="_blank">https://rootstock-foundry-example.vercel.app/</a>
+<strong>Complete github code:</strong> <a href="https://github.com/ishitarastogi/rootstock-fullstack-dapp" target="_blank">https://rootstock-foundry-example.vercel.app/</a>
 
 Built a fullstack dApp on the Rootstock blockchain using the Foundry kit, Solidity, and ReactJS.
 
