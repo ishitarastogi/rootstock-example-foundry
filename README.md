@@ -1,7 +1,7 @@
 # Build an ERC‑20 Faucet on Rootstock with Foundry
 
 **Sidebar Label:** ERC‑20 Faucet with Foundry  
-**Description:** Complete guide to deploy a claim‑based ERC‑20 token on Rootstock using Foundry  
+**Description:** Complete guide to deploy a claim‑based ERC‑20 token on Rootstock using Rootstock Foundry Kit
 **Tags:** `foundry`, `erc20`, `faucet`, `rootstock`
 
 
@@ -116,10 +116,10 @@ cd rootstock-foundry-starterkit
   </li>
 </ol>
 
-
+<hr>
 <h3> Step 5: Set Up Environment Variables</h4>
 
-<p>Inside your project project's root directory, create a <code>.env</code> file to securely store Private Key.</p>
+<p>Inside your project's root directory, create a <code>.env</code> file to securely store Private Key.</p>
 
 <pre><code>touch .env
 </code></pre>
@@ -186,7 +186,8 @@ cd rootstock-foundry-starterkit
 </div>
 
 
-<h4>🔍 Simulate Deployment (Optional)</h4>
+
+<h4> Simulate Deployment (Optional)</h4>
 
 <br>To dry-run the script without sending it, if you remove <code>--broadcast</code>, Foundry will simulate the deployment without actually submitting it.
 <pre><code>forge script script/Deploy.s.sol --rpc-url https://public-node.testnet.rsk.co --legacy --evm-version london</code></pre>
@@ -330,7 +331,7 @@ contract RootTokenTest is Test {
 
 ---
 
-<h3>🔧 4. Compile the Contracts</h3>
+<h3> 4. Compile the Contracts</h3>
 
 <pre><code>forge build</code></pre>
 
@@ -338,12 +339,13 @@ You should see a successful compiler output. Artifacts will be created inside th
 
 ---
 
-<h3>🧪 5. Run the Tests</h3>
+<h3> 5. Run the Tests</h3>
 
 <pre><code>forge test -vv</code></pre>
 
 - `-vv` shows full logs including emitted events and debug output.
 - All test cases should pass — check your terminal for green ✅.
+<img width="1118" alt="Screenshot 2025-04-22 at 12 46 19 AM" src="https://github.com/user-attachments/assets/57563a2f-c46e-4ec3-a43a-8cf1effe993b" />
 
 ---
 
@@ -595,9 +597,8 @@ Root yourself. Root your friends.
 Grow the global counter—together.
 
 <h3> ✅ That’s a Wrap: What You’ve Built </h3>
-
-- By the end of this guide, you’ve successfully:
-- Set up a modern EVM development environment using Foundry
+By the end of this guide, you’ve successfully:
+- Set up a modern EVM development environment using Rootstock Foundry Kit
 - Created a custom ERC-20 token contract with faucet logic
 - Tested it thoroughly using Forge’s powerful test suite
 - Deployed the contract to the Rootstock Testnet
@@ -605,4 +606,3 @@ Grow the global counter—together.
 - Interacted with it both via explorer UI and Cast CLI
 
 All of this on Rootstock, an EVM-compatible chain secured by Bitcoin.
-
